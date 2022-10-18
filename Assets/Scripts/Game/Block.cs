@@ -9,10 +9,10 @@ public class Block : MonoBehaviour
     private Level_Manager levelManager;
     public void Light()
     {
-        Transform glowingBlock = Instantiate(glowingBlockPrefab);
-        glowingBlock.localPosition = transform.position;
-        
         GetLevelManager();
+        Transform glowingBlock = Instantiate(glowingBlockPrefab, levelManager.transform);
+        glowingBlock.position = transform.position;
+        
         levelManager.CountLitBlocks();
         
         SelfDestruct();

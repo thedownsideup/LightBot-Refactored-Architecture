@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelNumber: 1
   numberOfLightableBlocks: 1
+  numberOfAvailableCommands: 2
   map: {fileID: 9132295285747994130, guid: 0bfb02f676cc4d340a3272e3ab1e18b6, type: 3}

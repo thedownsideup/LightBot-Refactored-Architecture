@@ -6,6 +6,7 @@ public class Level : ScriptableObject
 {
     public int levelNumber;
     public int numberOfLightableBlocks;
+    public int numberOfAvailableCommands;
     public GameObject map;
 }
      

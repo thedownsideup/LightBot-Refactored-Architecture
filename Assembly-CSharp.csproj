@@ -54,8 +54,9 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\Game\Block.cs" />
      <Compile Include="Assets\Scripts\Game\Level.cs" />
+     <Compile Include="Assets\Scripts\MainMenu\LevelPick.cs" />
      <Compile Include="Assets\Scripts\Game\UI_Manager.cs" />
-     <Compile Include="Assets\Scripts\MainMenu\MainMenu.cs" />
+     <Compile Include="Assets\Scripts\Game\CommandButtonHolder.cs" />
      <Compile Include="Assets\Scripts\Game\Level_Manager.cs" />
      <Compile Include="Assets\Scripts\Game\Bot.cs" />
      <Compile Include="Assets\Scripts\Game\Command_Manager.cs" />
@@ -644,6 +645,9 @@
  <Reference Include="Unity.RenderPipelines.Universal.Runtime">
  <HintPath>D:/Unity Programs/LightBot/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
  </Reference>
+ <Reference Include="Unity.Postprocessing.Runtime">
+ <HintPath>D:/Unity Programs/LightBot/Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll</HintPath>
+ </Reference>
  <Reference Include="Unity.VisualStudio.Editor">
  <HintPath>D:/Unity Programs/LightBot/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
  </Reference>
@@ -668,6 +672,9 @@
  <Reference Include="Unity.RenderPipelines.Core.Runtime">
  <HintPath>D:/Unity Programs/LightBot/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll</HintPath>
  </Reference>
+ <Reference Include="Unity.Postprocessing.Editor">
+ <HintPath>D:/Unity Programs/LightBot/Library/ScriptAssemblies/Unity.Postprocessing.Editor.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEditor.UI">
  <HintPath>D:/Unity Programs/LightBot/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
  </Reference>
@@ -685,12 +692,6 @@
  </Reference>
  <Reference Include="Unity.Mathematics">
  <HintPath>D:/Unity Programs/LightBot/Library/ScriptAssemblies/Unity.Mathematics.dll</HintPath>
- </Reference>
- <Reference Include="Unity.Postprocessing.Editor">
- <HintPath>D:/Unity Programs/LightBot/Library/ScriptAssemblies/Unity.Postprocessing.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.Postprocessing.Runtime">
- <HintPath>D:/Unity Programs/LightBot/Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>

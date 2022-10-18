@@ -17,10 +17,6 @@ public class Command_Manager : MonoBehaviour
     private void Start()
     {
         Instance = this;
-        bot = GameObject.Find("Bot").GetComponent<Bot>();
-
-        if (bot == null)
-            Debug.LogError("Bot Is Empty");
     }
     public void AddCommand(Command command)
     {
@@ -31,6 +27,7 @@ public class Command_Manager : MonoBehaviour
     public void RemoveCommand(Command command)
     {
         commands.Remove(command);
+        //TODO : Don't show 
     }
 
     private void ShowCommandItem(Command command)
@@ -41,11 +38,28 @@ public class Command_Manager : MonoBehaviour
 
     public void OnRun()
     {
+        GetBot();
         CommandBot();
     }
 
     private void CommandBot()
     {
         StartCoroutine(bot.Move(commands));
+    }
+
+    private void GetBot()
+    {
+        bot = GameObject.Find("Bot").GetComponent<Bot>();
+
+        if (bot == null)
+            Debug.LogError("Bot Is Empty");
+    }
+
+    public void ClearCommandList()
+    {
+        commands.Clear();
+        foreach (Transform child in mainContainer) {
+            GameObject.Destroy(child.gameObject);
+        }
     }
 }

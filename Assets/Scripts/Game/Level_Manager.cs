@@ -5,31 +5,29 @@ using UnityEngine;
 public class Level_Manager : MonoBehaviour
 {
     [SerializeField] List<Level> levels;
-    [SerializeField] private int levelNumber = 0;
+    public int levelNumber = 0;
     private int numberOfLitBlocks = 0;
     private int numberOfLightableBlocks;
 
     private GameObject map;
+    
     private UI_Manager uiManager;
-
-    private void Awake()
-    {
-        LoadNextLevel();
-    }
-
+    private Command_Manager commandManager;
+    [SerializeField] private CommandButtonHolder commandHolder;
+    
     public void LoadNextLevel()
     {
         DeleteLastLevel();
         InstantiateMap();
         numberOfLightableBlocks = levels[levelNumber].numberOfLightableBlocks;
+        commandHolder.SetButtons(levels[levelNumber].numberOfAvailableCommands);
         levelNumber++;
     }
 
     private void InstantiateMap()
     {
         map = levels[levelNumber].map;
-        Instantiate(map);
-        map.gameObject.SetActive(true);
+        Instantiate(map, transform, true);
     }
 
     public void CountLitBlocks()
@@ -52,7 +50,16 @@ public class Level_Manager : MonoBehaviour
         uiManager = GameObject.Find("UI_Manager").GetComponent<UI_Manager>();
         if (uiManager == null)
         {
-            Debug.LogError("Level Manager Is Empty");
+            Debug.LogError("UI Manager Is Empty");
+        }
+    }
+    
+    private void GetCommandManager()
+    {
+        commandManager = GameObject.Find("Command_Manager").GetComponent<Command_Manager>();
+        if (commandManager == null)
+        {
+            Debug.LogError("Command Manager Is Empty");
         }
     }
 
@@ -60,7 +67,14 @@ public class Level_Manager : MonoBehaviour
     {
         if (map != null)
         {
-            map.SetActive(false); //Can I relocate the Bot that I have?
+            foreach (Transform child in transform) {
+                GameObject.Destroy(child.gameObject);
+            }
         }
+        
+        GetCommandManager();
+        commandManager.ClearCommandList();
+
+        numberOfLitBlocks = 0;
     }
 }

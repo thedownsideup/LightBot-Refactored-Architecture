@@ -9,6 +9,7 @@ public class Bot : MonoBehaviour
 {
 	private float duration = 0.5f;
 	private float step = -1.7f;
+	private float jumpHeight = 1f;
 	private Vector3 targetPosition;
 	private float endRotation;
 
@@ -17,7 +18,8 @@ public class Bot : MonoBehaviour
 		Walk,
 		Light,
 		TurnLeft,
-		TurnRight
+		TurnRight,
+		Jump
 	}
 
 	void Awake()
@@ -41,10 +43,14 @@ public class Bot : MonoBehaviour
 					Light();
 					break;
 				case (int)Moves.TurnLeft:
-					yield return  StartCoroutine(Turn(-90f));
+					yield return StartCoroutine(Turn(-90f));
 					break;
 				case (int)Moves.TurnRight:
-					yield return  StartCoroutine(Turn(90f));
+					yield return StartCoroutine(Turn(90f));
+					break;
+				case (int)Moves.Jump:
+					yield return StartCoroutine(Jump(transform.up));
+					yield return StartCoroutine(Walk(transform.right));
 					break;
 				
 			}
@@ -70,7 +76,7 @@ public class Bot : MonoBehaviour
 	private IEnumerator Turn(float degree)
 	{
 		float startRotation = transform.eulerAngles.y;
-		endRotation = endRotation + degree;
+		endRotation = startRotation + degree;
 		float elapsedTime = 0;
 		
 		while (elapsedTime  < duration)
@@ -93,6 +99,20 @@ public class Bot : MonoBehaviour
 		{
 			Block block = collider.transform.GetComponent<Block>();
 			block.Light();
+		}
+	}
+
+	private IEnumerator Jump(Vector3 direction)
+	{
+		Vector3 startPosition  = transform.position;
+		targetPosition = targetPosition + (direction * jumpHeight);
+		float elapsedTime = 0;
+         
+		while (elapsedTime < duration)
+		{
+			transform.position = Vector3.Lerp(startPosition, targetPosition, (elapsedTime / duration));
+			elapsedTime += Time.deltaTime;
+			yield return null;
 		}
 	}
 }
