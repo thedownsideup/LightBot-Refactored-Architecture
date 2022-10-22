@@ -62,7 +62,8 @@
      <Compile Include="Assets\Scripts\Game\Command_Manager.cs" />
      <Compile Include="Assets\Scripts\Game\CommandController.cs" />
      <Compile Include="Assets\Scripts\Game\CommandPick.cs" />
-     <Compile Include="Assets\Scripts\Game\Command.cs" />
+     <Compile Include="Assets\Scripts\Game\CommandData.cs" />
+     <Compile Include="Assets\Scripts\Game\CommandConfig.cs" />
  <Reference Include="UnityEngine">
  <HintPath>D:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
  </Reference>

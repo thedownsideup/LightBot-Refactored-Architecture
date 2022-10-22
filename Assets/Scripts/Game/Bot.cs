@@ -41,12 +41,12 @@ public class Bot : MonoBehaviour
 	}
 
 
-	public IEnumerator Move (List<Command> commands)
+	public IEnumerator Move (List<CommandData> commands)
 	{
-		foreach (Command command in commands)
+		foreach (CommandData commandData in commands)
 		{
 			Vector3 currentPosition = transform.position;
-			switch (command.value)
+			switch (commandData.Value)
 			{
 				case (int)Moves.Walk:
 					yield return StartCoroutine(Walk(transform.right));

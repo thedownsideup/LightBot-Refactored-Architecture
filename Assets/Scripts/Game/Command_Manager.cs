@@ -7,8 +7,8 @@ public class Command_Manager : MonoBehaviour
 {
     public static Command_Manager Instance;
     
-    private List<Command> mainCommands = new List<Command>();
-    private List<Command> functionCommands = new List<Command>();
+    private List<CommandData> mainCommands = new List<CommandData>();
+    private List<CommandData> functionCommands = new List<CommandData>();
     
     private Bot bot;
     
@@ -33,32 +33,40 @@ public class Command_Manager : MonoBehaviour
     {
         Instance = this;
     }
-    public void AddCommand(Command command)
+    public void AddCommand(CommandData commandData)
     {
         if (isMain && mainCommands.Count <= MAX_COMMANDS_MAIN)
         {
-            mainCommands.Add(command);
-            ShowCommandItem(command, mainContainer);
+            mainCommands.Add(commandData);
+            ShowCommandItem(commandData, mainContainer);
         }
 
-        if (isFunction && functionCommands.Count <= MAX_COMMANDS_FUNCTION)
+        else if (isFunction && functionCommands.Count <= MAX_COMMANDS_FUNCTION)
         {
-            functionCommands.Add(command);
-            ShowCommandItem(command, functionContainer);
+            functionCommands.Add(commandData);
+            ShowCommandItem(commandData, functionContainer);
         }
         
     }
 
-    public void RemoveCommand(Command command)
+    public void RemoveCommand(CommandData commandData)
     {
-        mainCommands.Remove(command);
-        //TODO : Don't show 
+        if (mainCommands.Contains(commandData))
+        {
+            mainCommands.Remove(commandData);
+        }
+
+        else if (functionCommands.Contains(commandData))
+        {
+            functionCommands.Remove(commandData);
+        }
     }
 
-    private void ShowCommandItem(Command command, Transform container)
+    private void ShowCommandItem(CommandData commandData, Transform container)
     {
         GameObject commandPrefab = Instantiate(commandContainer, container);
-        commandPrefab.GetComponent<Image>().sprite = command.icon;
+        commandPrefab.GetComponent<CommandController>().commandData = commandData;
+        commandPrefab.GetComponent<Image>().sprite = commandData.Icon;
     }
 
     public void OnRun()
@@ -72,7 +80,7 @@ public class Command_Manager : MonoBehaviour
     {
         for (int i = 0; i < mainCommands.Count; i++)
         {
-            if (mainCommands[i].value == FUNCTION_COMMAND)
+            if (mainCommands[i].Value == FUNCTION_COMMAND)
             {
                 for (int j = 0; j < functionCommands.Count; j++)
                 {
