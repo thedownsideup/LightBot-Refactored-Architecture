@@ -41,31 +41,28 @@ public class Bot : MonoBehaviour
 	}
 
 
-	public IEnumerator Move (List<CommandData> commands)
+	public IEnumerator Move (CommandData command)
 	{
-		foreach (CommandData commandData in commands)
+		Vector3 currentPosition = transform.position;
+		switch (command.Value)
 		{
-			Vector3 currentPosition = transform.position;
-			switch (commandData.Value)
-			{
-				case (int)Moves.Walk:
-					yield return StartCoroutine(Walk(transform.right));
-					break;
-				case (int)Moves.Light:
-					Light();
-					break;
-				case (int)Moves.TurnLeft:
-					yield return StartCoroutine(Turn(-90f));
-					break;
-				case (int)Moves.TurnRight:
-					yield return StartCoroutine(Turn(90f));
-					break;
-				case (int)Moves.Jump:
-					yield return StartCoroutine(Jump());
-					break;
-			}
-			yield return new WaitForSeconds(0.2f);
+			case (int)Moves.Walk:
+				yield return StartCoroutine(Walk(transform.right));
+				break;
+			case (int)Moves.Light:
+				Light();
+				break;
+			case (int)Moves.TurnLeft:
+				yield return StartCoroutine(Turn(-90f));
+				break;
+			case (int)Moves.TurnRight:
+				yield return StartCoroutine(Turn(90f));
+				break;
+			case (int)Moves.Jump:
+				yield return StartCoroutine(Jump());
+				break;
 		}
+		yield return new WaitForSeconds(0.2f);
 	}
 	
 	private IEnumerator Walk(Vector3 direction)

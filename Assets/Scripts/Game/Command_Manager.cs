@@ -72,11 +72,10 @@ public class Command_Manager : MonoBehaviour
     public void OnRun()
     {
         GetBot();
-        BreakFunctions();
-        CommandBot();
+        StartCoroutine(BreakFunctions());
     }
 
-    void BreakFunctions()
+    IEnumerator BreakFunctions()
     {
         for (int i = 0; i < mainCommands.Count; i++)
         {
@@ -87,14 +86,19 @@ public class Command_Manager : MonoBehaviour
                     mainCommands.Insert(i + j, functionCommands[j]);
                 }
                 mainCommands.Remove(mainCommands[i + functionCommands.Count]);
+                yield return StartCoroutine(CommandBot(mainCommands[i]));
+                yield return null;
+            }
+            else
+            {
+                yield return StartCoroutine(CommandBot(mainCommands[i]));
             }
         }
     }
     
-
-    private void CommandBot()
+    private IEnumerator CommandBot(CommandData command)
     {
-        StartCoroutine(bot.Move(mainCommands));
+        yield return StartCoroutine(bot.Move(command));
     }
 
     private void GetBot()
@@ -108,7 +112,11 @@ public class Command_Manager : MonoBehaviour
     public void ClearCommandList()
     {
         mainCommands.Clear();
+        functionCommands.Clear();
         foreach (Transform child in mainContainer) {
+            GameObject.Destroy(child.gameObject);
+        }
+        foreach (Transform child in functionContainer) {
             GameObject.Destroy(child.gameObject);
         }
     }
