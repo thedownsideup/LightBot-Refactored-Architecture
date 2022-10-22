@@ -21,6 +21,7 @@ public class Level_Manager : MonoBehaviour
         InstantiateMap();
         numberOfLightableBlocks = levels[levelNumber].numberOfLightableBlocks;
         commandHolder.SetButtons(levels[levelNumber].numberOfAvailableCommands);
+        commandManager.SetContainers(levels[levelNumber].numberOfAvailableCommands);
         levelNumber++;
     }
 
@@ -65,16 +66,15 @@ public class Level_Manager : MonoBehaviour
 
     private void DeleteLastLevel()
     {
+        GetCommandManager();
+        commandManager.ClearCommandList();
+        
         if (map != null)
         {
             foreach (Transform child in transform) {
                 GameObject.Destroy(child.gameObject);
             }
         }
-        
-        GetCommandManager();
-        commandManager.ClearCommandList();
-
         numberOfLitBlocks = 0;
     }
 }

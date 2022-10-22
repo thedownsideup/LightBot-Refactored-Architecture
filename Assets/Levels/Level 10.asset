@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a4b2712e29eeec4abe7a2657e31e5e9, type: 3}
+  m_Name: Level 10
+  m_EditorClassIdentifier: 
+  levelNumber: 10
+  numberOfLightableBlocks: 1
+  numberOfAvailableCommands: 6
+  map: {fileID: 1361304087167737179, guid: ec4f177f0eff47c4ea6baee0019bfd64, type: 3}

@@ -24,6 +24,7 @@ public class Bot : MonoBehaviour
 
 	void Awake()
 	{
+		GetComponent<CapsuleCollider>().enabled = false;
 		targetPosition = transform.position;
 		endRotation = transform.eulerAngles.y;
 	}
@@ -49,16 +50,13 @@ public class Bot : MonoBehaviour
 					yield return StartCoroutine(Turn(90f));
 					break;
 				case (int)Moves.Jump:
-					yield return StartCoroutine(Jump(transform.up));
-					yield return StartCoroutine(Walk(transform.right));
+					yield return StartCoroutine(Jump());
 					break;
-				
 			}
-
 			yield return new WaitForSeconds(0.2f);
 		}
 	}
-
+	
 	private IEnumerator Walk(Vector3 direction)
 	{
 		Vector3 startPosition  = transform.position;
@@ -102,7 +100,21 @@ public class Bot : MonoBehaviour
 		}
 	}
 
-	private IEnumerator Jump(Vector3 direction)
+	private IEnumerator Jump()
+	{
+		if (ThereIsObstacle())
+		{
+			yield return StartCoroutine(JumpDirection(transform.up));
+			yield return StartCoroutine(Walk(transform.right));
+		}
+		else
+		{
+			yield return StartCoroutine(Walk(transform.right));
+			yield return StartCoroutine(JumpDirection(-transform.up));
+		}
+	}
+
+	private IEnumerator JumpDirection(Vector3 direction)
 	{
 		Vector3 startPosition  = transform.position;
 		targetPosition = targetPosition + (direction * jumpHeight);
@@ -113,6 +125,25 @@ public class Bot : MonoBehaviour
 			transform.position = Vector3.Lerp(startPosition, targetPosition, (elapsedTime / duration));
 			elapsedTime += Time.deltaTime;
 			yield return null;
+		}
+	}
+
+	private bool ThereIsObstacle()
+	{
+		Vector3 raycastOriginPoint = transform.position + new Vector3(0, -0.6f, 0);
+		float raycastMaxDistance = 1.7f;
+		
+		RaycastHit hit;
+		if (Physics.Raycast(origin: raycastOriginPoint, direction: -transform.right, out hit, 
+			    maxDistance: raycastMaxDistance, layerMask: Physics.AllLayers,
+			    queryTriggerInteraction: QueryTriggerInteraction.UseGlobal))
+		{
+			return true;
+		}
+
+		else
+		{
+			return false;
 		}
 	}
 }

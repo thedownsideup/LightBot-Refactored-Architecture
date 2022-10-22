@@ -15,4 +15,4 @@ MonoBehaviour:
   levelNumber: 2
   numberOfLightableBlocks: 1
   numberOfAvailableCommands: 4
-  map: {fileID: 347424908609496205, guid: cc6a7be152808144f82db35ec382b28e, type: 3}
+  map: {fileID: 4556166289920470946, guid: cc6a7be152808144f82db35ec382b28e, type: 3}
