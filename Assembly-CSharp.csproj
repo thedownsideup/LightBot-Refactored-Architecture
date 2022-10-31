@@ -13,7 +13,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{e4547b03-a902-58ad-9c25-ee630c2b2112}</ProjectGuid>
+    <ProjectGuid>{4730dd53-4479-c6aa-c5dd-8404fbf1bed4}</ProjectGuid>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -52,18 +52,20 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\Game\Block.cs" />
-     <Compile Include="Assets\Scripts\Game\Level.cs" />
-     <Compile Include="Assets\Scripts\MainMenu\LevelPick.cs" />
-     <Compile Include="Assets\Scripts\Game\UI_Manager.cs" />
-     <Compile Include="Assets\Scripts\Game\CommandButtonHolder.cs" />
-     <Compile Include="Assets\Scripts\Game\Level_Manager.cs" />
-     <Compile Include="Assets\Scripts\Game\CommandConfig.cs" />
-     <Compile Include="Assets\Scripts\Game\Bot.cs" />
-     <Compile Include="Assets\Scripts\Game\Command_Manager.cs" />
-     <Compile Include="Assets\Scripts\Game\CommandController.cs" />
-     <Compile Include="Assets\Scripts\Game\CommandPick.cs" />
-     <Compile Include="Assets\Scripts\Game\CommandData.cs" />
+     <Compile Include="Assets\Scripts\Game\CommandSystem\Logic\Commands\WalkCommand.cs" />
+     <Compile Include="Assets\Scripts\Game\CommandSystem\Logic\Commands\TurnLeftCommand.cs" />
+     <Compile Include="Assets\Scripts\Game\CommandSystem\Presentation\CommandManagerPresentationConfig.cs" />
+     <Compile Include="Assets\Scripts\Game\Character.cs" />
+     <Compile Include="Assets\Scripts\Game\CommandSystem\Logic\CommandManager.cs" />
+     <Compile Include="Assets\Scripts\Game\CommandSystem\Logic\CommandFactory.cs" />
+     <Compile Include="Assets\Scripts\Game\CommandSystem\Presentation\CommandManagerPresentation.cs" />
+     <Compile Include="Assets\Third Parties\PandasCanPlay\Unity\Attributes\TypeAttribute.cs" />
+     <Compile Include="Assets\Scripts\Game\CommandSystem\CommandLayerController.cs" />
+     <Compile Include="Assets\Scripts\Game\God.cs" />
+     <Compile Include="Assets\Scripts\Game\CommandSystem\Logic\Commands\JumpCommand.cs" />
+     <Compile Include="Assets\Scripts\Game\CommandSystem\Logic\Commands\LightCommand.cs" />
+     <Compile Include="Assets\Scripts\Game\CommandSystem\Logic\Commands\TurnRightCommand.cs" />
+     <Compile Include="Assets\Scripts\Game\CommandSystem\Logic\Command.cs" />
  <Reference Include="UnityEngine">
  <HintPath>D:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
  </Reference>
@@ -632,67 +634,67 @@
  <HintPath>D:/Program Files/Unity/Editor/Data/NetStandard/compat/2.0.0/shims/netfx/System.Xml.Serialization.dll</HintPath>
  </Reference>
  <Reference Include="Unity.ShaderGraph.Editor">
- <HintPath>D:/Unity Programs/LightBot/Library/ScriptAssemblies/Unity.ShaderGraph.Editor.dll</HintPath>
+ <HintPath>D:/Unity Projects/LightBot 2/Library/ScriptAssemblies/Unity.ShaderGraph.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.VSCode.Editor">
- <HintPath>D:/Unity Programs/LightBot/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+ <HintPath>D:/Unity Projects/LightBot 2/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.RenderPipelines.Universal.Shaders">
- <HintPath>D:/Unity Programs/LightBot/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
+ <HintPath>D:/Unity Projects/LightBot 2/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
  </Reference>
  <Reference Include="Unity.RenderPipelines.Universal.Editor">
- <HintPath>D:/Unity Programs/LightBot/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Editor.dll</HintPath>
+ <HintPath>D:/Unity Projects/LightBot 2/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.RenderPipelines.Universal.Runtime">
- <HintPath>D:/Unity Programs/LightBot/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
+ <HintPath>D:/Unity Projects/LightBot 2/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Postprocessing.Runtime">
- <HintPath>D:/Unity Programs/LightBot/Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll</HintPath>
+ <HintPath>D:/Unity Projects/LightBot 2/Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll</HintPath>
  </Reference>
  <Reference Include="Unity.VisualStudio.Editor">
- <HintPath>D:/Unity Programs/LightBot/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
+ <HintPath>D:/Unity Projects/LightBot 2/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
- <HintPath>D:/Unity Programs/LightBot/Library/ScriptAssemblies/Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
+ <HintPath>D:/Unity Projects/LightBot 2/Library/ScriptAssemblies/Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Timeline.Editor">
- <HintPath>D:/Unity Programs/LightBot/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+ <HintPath>D:/Unity Projects/LightBot 2/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Timeline">
- <HintPath>D:/Unity Programs/LightBot/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+ <HintPath>D:/Unity Projects/LightBot 2/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
  </Reference>
  <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
- <HintPath>D:/Unity Programs/LightBot/Library/ScriptAssemblies/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
+ <HintPath>D:/Unity Projects/LightBot 2/Library/ScriptAssemblies/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Mathematics.Editor">
- <HintPath>D:/Unity Programs/LightBot/Library/ScriptAssemblies/Unity.Mathematics.Editor.dll</HintPath>
+ <HintPath>D:/Unity Projects/LightBot 2/Library/ScriptAssemblies/Unity.Mathematics.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Searcher.Editor">
- <HintPath>D:/Unity Programs/LightBot/Library/ScriptAssemblies/Unity.Searcher.Editor.dll</HintPath>
+ <HintPath>D:/Unity Projects/LightBot 2/Library/ScriptAssemblies/Unity.Searcher.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.RenderPipelines.Core.Runtime">
- <HintPath>D:/Unity Programs/LightBot/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll</HintPath>
+ <HintPath>D:/Unity Projects/LightBot 2/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Postprocessing.Editor">
- <HintPath>D:/Unity Programs/LightBot/Library/ScriptAssemblies/Unity.Postprocessing.Editor.dll</HintPath>
+ <HintPath>D:/Unity Projects/LightBot 2/Library/ScriptAssemblies/Unity.Postprocessing.Editor.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.UI">
- <HintPath>D:/Unity Programs/LightBot/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+ <HintPath>D:/Unity Projects/LightBot 2/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Rider.Editor">
- <HintPath>D:/Unity Programs/LightBot/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+ <HintPath>D:/Unity Projects/LightBot 2/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
- <HintPath>D:/Unity Programs/LightBot/Library/ScriptAssemblies/Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
+ <HintPath>D:/Unity Projects/LightBot 2/Library/ScriptAssemblies/Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
- <HintPath>D:/Unity Programs/LightBot/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+ <HintPath>D:/Unity Projects/LightBot 2/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="Unity.RenderPipelines.Core.Editor">
- <HintPath>D:/Unity Programs/LightBot/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll</HintPath>
+ <HintPath>D:/Unity Projects/LightBot 2/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Mathematics">
- <HintPath>D:/Unity Programs/LightBot/Library/ScriptAssemblies/Unity.Mathematics.dll</HintPath>
+ <HintPath>D:/Unity Projects/LightBot 2/Library/ScriptAssemblies/Unity.Mathematics.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>
