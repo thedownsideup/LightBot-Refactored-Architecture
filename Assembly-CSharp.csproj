@@ -52,20 +52,37 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\Game\CommandSystem\Logic\Commands\WalkCommand.cs" />
-     <Compile Include="Assets\Scripts\Game\CommandSystem\Logic\Commands\TurnLeftCommand.cs" />
-     <Compile Include="Assets\Scripts\Game\CommandSystem\Presentation\CommandManagerPresentationConfig.cs" />
-     <Compile Include="Assets\Scripts\Game\Character.cs" />
-     <Compile Include="Assets\Scripts\Game\CommandSystem\Logic\CommandManager.cs" />
-     <Compile Include="Assets\Scripts\Game\CommandSystem\Logic\CommandFactory.cs" />
-     <Compile Include="Assets\Scripts\Game\CommandSystem\Presentation\CommandManagerPresentation.cs" />
+     <Compile Include="Assets\Scripts\CommandSystem\Logic\Commands\WalkCommand.cs" />
+     <Compile Include="Assets\Scripts\CommandSystem\Logic\Commands\TurnLeftCommand.cs" />
+     <Compile Include="Assets\Scripts\Level\LevelLayerController.cs" />
+     <Compile Include="Assets\Scripts\Level\Presentation\LevelManagerPresentation.cs" />
+     <Compile Include="Assets\Scripts\Foundation\ServiceLocator\IService.cs" />
+     <Compile Include="Assets\Scripts\Foundation\ConfigurationSystem\ConfigurationManager.cs" />
+     <Compile Include="Assets\Scripts\Level\Logic\CurrentLevelManager.cs" />
+     <Compile Include="Assets\Scripts\Level\Config\LevelLayerConfig.cs" />
+     <Compile Include="Assets\Scripts\CommandSystem\Config\CommandManagerPresentationConfig.cs" />
+     <Compile Include="Assets\Scripts\Level\LevelLayerFactory.cs" />
+     <Compile Include="Assets\Scripts\Character\Character.cs" />
+     <Compile Include="Assets\Scripts\Foundation\ServiceLocator\ServiceLocator.cs" />
+     <Compile Include="Assets\Scripts\CommandSystem\Logic\CommandManager.cs" />
+     <Compile Include="Assets\Scripts\Lightable.cs" />
+     <Compile Include="Assets\Scripts\CommandSystem\Logic\CommandFactory.cs" />
+     <Compile Include="Assets\Scripts\CommandSystem\Presentation\CommandManagerPresentation.cs" />
+     <Compile Include="Assets\Scripts\CommandSystem\CommandLayerFactory.cs" />
      <Compile Include="Assets\Third Parties\PandasCanPlay\Unity\Attributes\TypeAttribute.cs" />
-     <Compile Include="Assets\Scripts\Game\CommandSystem\CommandLayerController.cs" />
-     <Compile Include="Assets\Scripts\Game\God.cs" />
-     <Compile Include="Assets\Scripts\Game\CommandSystem\Logic\Commands\JumpCommand.cs" />
-     <Compile Include="Assets\Scripts\Game\CommandSystem\Logic\Commands\LightCommand.cs" />
-     <Compile Include="Assets\Scripts\Game\CommandSystem\Logic\Commands\TurnRightCommand.cs" />
-     <Compile Include="Assets\Scripts\Game\CommandSystem\Logic\Command.cs" />
+     <Compile Include="Assets\Scripts\CommandSystem\CommandLayerController.cs" />
+     <Compile Include="Assets\Scripts\God.cs" />
+     <Compile Include="Assets\Scripts\CommandSystem\Logic\Commands\JumpCommand.cs" />
+     <Compile Include="Assets\Scripts\CommandSystem\Logic\Commands\LightCommand.cs" />
+     <Compile Include="Assets\Scripts\CommandSystem\Logic\Commands\TurnRightCommand.cs" />
+     <Compile Include="Assets\Scripts\Level\Config\LevelLayerData.cs" />
+     <Compile Include="Assets\Scripts\Level\Logic\LevelsController.cs" />
+     <Compile Include="Assets\Scripts\CommandSystem\Logic\Command.cs" />
+     <Compile Include="Assets\Scripts\Character\Logic\CharacterLogic.cs" />
+     <Compile Include="Assets\Scripts\Character\Presentation\CharacterPresentation.cs" />
+     <Compile Include="Assets\Scripts\Character\Config\CharacterConfig.cs" />
+     <Compile Include="Assets\Scripts\Foundation\ScheduleSystem\Scheduler.cs" />
+     <Compile Include="Assets\Scripts\Foundation\ScheduleSystem\EntityScheduler.cs" />
  <Reference Include="UnityEngine">
  <HintPath>D:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
  </Reference>
